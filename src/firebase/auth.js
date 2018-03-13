@@ -1,6 +1,5 @@
-import {auth} from './firebase';
+import { auth } from './firebase';
 
-//Sign up and sign in are asynchronous now 
 // Sign Up
 export const doCreateUserWithEmailAndPassword = (email, password) =>
   auth.createUserWithEmailAndPassword(email, password);
@@ -9,6 +8,14 @@ export const doCreateUserWithEmailAndPassword = (email, password) =>
 export const doSignInWithEmailAndPassword = (email, password) =>
   auth.signInWithEmailAndPassword(email, password);
 
- // Sign out
+// Sign out
 export const doSignOut = () =>
   auth.signOut();
+
+// Password Reset
+export const doPasswordReset = (email) =>
+  auth.sendPasswordResetEmail(email);
+
+// Password Change
+export const doPasswordUpdate = (password) =>
+  auth.currentUser.updatePassword(password);
